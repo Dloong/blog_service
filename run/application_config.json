@@ -13,21 +13,22 @@
       "genid": "<Function v4>"
     },
     "security": {
-      "domainWhiteList": [],
+      "domainWhiteList": [
+        "http://localhost:3000"
+      ],
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
       "csrf": {
-        "enable": true,
+        "enable": false,
         "type": "ctoken",
-        "ignoreJSON": false,
+        "ignoreJSON": true,
         "useSession": false,
         "cookieName": "csrfToken",
         "sessionName": "csrfToken",
         "headerName": "x-csrf-token",
         "bodyName": "_csrf",
         "queryName": "_csrf",
-        "refererWhiteList": [],
-        "matching": "<Function anonymous>"
+        "refererWhiteList": []
       },
       "xframe": {
         "enable": true,
@@ -88,26 +89,26 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-onerror/lib/onerror_page.mustache"
+      "templatePath": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-onerror/lib/onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-session/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-security/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-jsonp/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-onerror/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-i18n/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-watcher/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-schedule/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-multipart/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-development/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-logrotator/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-static/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-view/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-mysql/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/locales",
-        "/Users/duanshilong/Documents/react_blog/egg_blog_service/config/locales"
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-session/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-security/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-jsonp/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-onerror/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-i18n/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-watcher/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-schedule/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-multipart/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-logrotator/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-static/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-view/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-mysql/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-cors/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/locales",
+        "/Users/duanshilong/Documents/react_blog/blog_service/config/locales"
       ],
       "queryField": "locale",
       "cookieField": "locale",
@@ -116,10 +117,10 @@
       "functionName": "__"
     },
     "watcher": {
-      "type": "development",
+      "type": "default",
       "eventSources": {
-        "default": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-watcher/lib/event-sources/default",
-        "development": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-watcher/lib/event-sources/development"
+        "default": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-watcher/lib/event-sources/default",
+        "development": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-watcher/lib/event-sources/development"
       }
     },
     "customLogger": {
@@ -147,13 +148,6 @@
         "cron": "0 30 4 * * *"
       }
     },
-    "development": {
-      "watchDirs": [],
-      "ignoreDirs": [],
-      "fastReady": false,
-      "reloadOnDebug": true,
-      "overrideDefault": false
-    },
     "logrotator": {
       "filesRotateByHour": null,
       "hourDelimiter": "-",
@@ -165,15 +159,16 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "/Users/duanshilong/Documents/react_blog/egg_blog_service/app/public",
+      "dir": "/Users/duanshilong/Documents/react_blog/blog_service/app/public",
       "dynamic": true,
       "preload": false,
-      "buffer": false,
-      "maxFiles": 1000
+      "buffer": true,
+      "maxFiles": 1000,
+      "maxAge": 31536000
     },
     "view": {
-      "root": "/Users/duanshilong/Documents/react_blog/egg_blog_service/app/view",
-      "cache": false,
+      "root": "/Users/duanshilong/Documents/react_blog/blog_service/app/view",
+      "cache": true,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
       "mapping": {}
@@ -193,7 +188,11 @@
         "database": "react_blog"
       }
     },
-    "env": "local",
+    "cors": {
+      "origin": "*",
+      "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
+    },
+    "env": "prod",
     "name": "service",
     "keys": "<String len: 26>",
     "proxy": false,
@@ -212,6 +211,7 @@
       },
       "dependencies": {
         "egg": "^2.15.1",
+        "egg-cors": "^2.2.2",
         "egg-mysql": "^3.0.0",
         "egg-scripts": "^2.11.0"
       },
@@ -249,9 +249,9 @@
       "author": "",
       "license": "MIT"
     },
-    "baseDir": "/Users/duanshilong/Documents/react_blog/egg_blog_service",
+    "baseDir": "/Users/duanshilong/Documents/react_blog/blog_service",
     "HOME": "/Users/duanshilong",
-    "rundir": "/Users/duanshilong/Documents/react_blog/egg_blog_service/run",
+    "rundir": "/Users/duanshilong/Documents/react_blog/blog_service/run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -283,21 +283,19 @@
       "returnRawBody": true
     },
     "logger": {
-      "dir": "/Users/duanshilong/Documents/react_blog/egg_blog_service/logs/service",
+      "dir": "/Users/duanshilong/logs/service",
       "encoding": "utf8",
-      "env": "local",
+      "env": "prod",
       "level": "INFO",
       "consoleLevel": "INFO",
-      "disableConsoleAfterReady": false,
+      "disableConsoleAfterReady": true,
       "outputJSON": false,
       "buffer": true,
       "appLogName": "service-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
-      "coreLogger": {
-        "consoleLevel": "WARN"
-      },
+      "coreLogger": {},
       "allowDebugAtProd": false,
       "type": "application"
     },
@@ -326,6 +324,7 @@
       "logging": false
     },
     "coreMiddleware": [
+      "cors",
       "meta",
       "siteFile",
       "notfound",
@@ -334,8 +333,7 @@
       "overrideMethod",
       "session",
       "securities",
-      "i18n",
-      "eggLoaderTrace"
+      "i18n"
     ],
     "workerStartTimeout": 600000,
     "serverTimeout": null,
@@ -376,8 +374,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-session",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -389,8 +387,8 @@
         "session"
       ],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-security",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-security",
       "version": "2.7.0"
     },
     "jsonp": {
@@ -402,8 +400,8 @@
         "security"
       ],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-jsonp",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -415,8 +413,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-onerror",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -426,8 +424,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-i18n",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-i18n",
       "version": "2.1.1"
     },
     "watcher": {
@@ -437,8 +435,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-watcher",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -448,8 +446,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-schedule",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-schedule",
       "version": "3.6.4"
     },
     "multipart": {
@@ -461,24 +459,9 @@
         "schedule"
       ],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-multipart",
-      "version": "2.9.0"
-    },
-    "development": {
-      "enable": true,
-      "package": "egg-development",
-      "name": "development",
-      "dependencies": [
-        "watcher"
-      ],
-      "optionalDependencies": [],
-      "env": [
-        "local"
-      ],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-development",
-      "version": "2.4.3"
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-multipart",
+      "version": "2.9.1"
     },
     "logrotator": {
       "enable": true,
@@ -489,8 +472,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-logrotator",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-logrotator",
       "version": "3.1.0"
     },
     "static": {
@@ -500,8 +483,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-static",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-static",
       "version": "2.2.0"
     },
     "view": {
@@ -511,8 +494,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-view",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-view",
       "version": "2.1.2"
     },
     "mysql": {
@@ -522,9 +505,20 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/Users/duanshilong/Documents/react_blog/egg_blog_service/config/plugin.js",
-      "path": "/Users/duanshilong/Documents/react_blog/egg_blog_service/node_modules/egg-mysql",
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-mysql",
       "version": "3.0.0"
+    },
+    "cors": {
+      "enable": true,
+      "package": "egg-cors",
+      "name": "cors",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-cors",
+      "version": "2.2.2"
     }
   }
 }
