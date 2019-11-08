@@ -88,7 +88,7 @@
       "cookieMaxAge": "1y"
     },
     "watcher": {
-      "type": "default",
+      "type": "development",
       "eventSources": {
         "default": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-watcher/lib/event-sources/default",
         "development": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-watcher/lib/event-sources/development"
@@ -119,6 +119,13 @@
         "cron": "0 30 4 * * *"
       }
     },
+    "development": {
+      "watchDirs": [],
+      "ignoreDirs": [],
+      "fastReady": false,
+      "reloadOnDebug": true,
+      "overrideDefault": false
+    },
     "logrotator": {
       "filesRotateByHour": null,
       "hourDelimiter": "-",
@@ -133,13 +140,12 @@
       "dir": "/Users/duanshilong/Documents/react_blog/blog_service/app/public",
       "dynamic": true,
       "preload": false,
-      "buffer": true,
-      "maxFiles": 1000,
-      "maxAge": 31536000
+      "buffer": false,
+      "maxFiles": 1000
     },
     "view": {
       "root": "/Users/duanshilong/Documents/react_blog/blog_service/app/view",
-      "cache": true,
+      "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
       "mapping": {}
@@ -163,7 +169,7 @@
       "origin": "*",
       "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
     },
-    "env": "prod",
+    "env": "local",
     "name": "service",
     "keys": "<String len: 26>",
     "proxy": false,
@@ -254,19 +260,21 @@
       "onerror": "<Function onerror>"
     },
     "logger": {
-      "dir": "/Users/duanshilong/logs/service",
+      "dir": "/Users/duanshilong/Documents/react_blog/blog_service/logs/service",
       "encoding": "utf8",
-      "env": "prod",
+      "env": "local",
       "level": "INFO",
       "consoleLevel": "INFO",
-      "disableConsoleAfterReady": true,
+      "disableConsoleAfterReady": false,
       "outputJSON": false,
       "buffer": true,
       "appLogName": "service-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
-      "coreLogger": {},
+      "coreLogger": {
+        "consoleLevel": "WARN"
+      },
       "allowDebugAtProd": false,
       "type": "agent"
     },
@@ -416,6 +424,21 @@
       "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
       "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-multipart",
       "version": "2.9.1"
+    },
+    "development": {
+      "enable": true,
+      "package": "egg-development",
+      "name": "development",
+      "dependencies": [
+        "watcher"
+      ],
+      "optionalDependencies": [],
+      "env": [
+        "local"
+      ],
+      "from": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg/config/plugin.js",
+      "path": "/Users/duanshilong/Documents/react_blog/blog_service/node_modules/egg-development",
+      "version": "2.4.3"
     },
     "logrotator": {
       "enable": true,

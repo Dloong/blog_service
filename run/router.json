@@ -11,5 +11,17 @@
     "stack": [
       "wrappedController"
     ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/login",
+    "regexp": "/^\\/admin\\/login(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
   }
 ]
