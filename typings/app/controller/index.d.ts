@@ -3,7 +3,7 @@
 
 import 'egg';
 import ExportHome = require('../../../app/controller/home');
-import ExportAdminLogin = require(../../../app/controller/admin/loginin');
+import ExportAdminLogin = require('../../../app/controller/admin/login');
 import ExportDefaultHome = require('../../../app/controller/default/home');
 
 declare module 'egg' {

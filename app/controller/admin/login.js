@@ -3,10 +3,9 @@
 const Controller = require('egg').Controller;
 
 class LoginController extends Controller {
-  async index(parmas) {
+  async index() {
     const { ctx } = this;
-    console.log(ctx.request)
-    const  user = await ctx.service.admin.login.handlerLogin(parmas.request)
+    const  user = await ctx.service.admin.login.handlerLogin(ctx.request)
     this.ctx.body = user;
   }
 }
