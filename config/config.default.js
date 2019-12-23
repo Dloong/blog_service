@@ -49,11 +49,11 @@ config.security = {
     enable: false,
     ignoreJSON: true
   },
-  domainWhiteList: ['http://localhost:3000']
+  domainWhiteList: ['http://127.0.0.1:3000']
 };
 config.cors = {
   origin:'*',
-  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
 };
   return {
     ...config,
