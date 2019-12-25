@@ -53,6 +53,7 @@ config.security = {
 };
 config.cors = {
   origin:'*',
+  credentials: true,  //允许Cook可以跨域
   allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
 };
   return {

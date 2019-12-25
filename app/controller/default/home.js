@@ -3,10 +3,14 @@
 const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
-  async index() {
-    const result = await this.app.mysql.get('article', {});
-    console.log(result);
-    this.ctx.body = result;
+  async getArticleList() {
+    const {ctx} = this
+    const result = await ctx.service.default.article.getArticleList(ctx.request)
+    this.ctx.body = {
+      code: 200,
+      data: result,
+      msg: "successful"
+    };
   }
 }
 

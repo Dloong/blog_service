@@ -5,5 +5,6 @@ module.exports = app => {
     router,
     controller,
   } = app;
-  router.get('/default/getArticleList', controller.default.home.index);
+  router.get('/default/getArticleList', controller.default.home.getArticleList);
+  router.get('/default/getArticleDetail', controller.default.article.getArticleDetail);
 };

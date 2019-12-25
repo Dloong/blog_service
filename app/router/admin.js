@@ -6,6 +6,7 @@ module.exports = app => {
     controller,
   } = app;
   router.post('/admin/login', controller.admin.login.index);
+  router.post('/admin/article/addArticle', controller.admin.article.addArticle);
 };
 
 
